@@ -1,4 +1,4 @@
-let tg = window.Telegram.WebApp;
+var tg = window.Telegram.WebApp;
 
 // Расширяем на весь экран.
 tg.expand();
@@ -9,14 +9,6 @@ tg.MainButton.color = '#2cab37';
 
 // Хранение выбранного товара.
 let item = "";
-
-// Доступ ко всем кнопкам.
-let btn1 = document.getElementById("btn1");
-let btn2 = document.getElementById("btn2");
-let btn3 = document.getElementById("btn3");
-let btn4 = document.getElementById("btn4");
-let btn5 = document.getElementById("btn5");
-let btn6 = document.getElementById("btn6");
 
 function createListener(i) {
 	return function() {
@@ -31,18 +23,10 @@ function createListener(i) {
 	};
 }
 
-// Устанавливаем события на кнопки.
-btn1.addEventListener("click", createListener(1));
-
-btn2.addEventListener("click", createListener(2));
-
-btn3.addEventListener("click", createListener(3));
-
-btn4.addEventListener("click", createListener(4));
-
-btn5.addEventListener("click", createListener(5));
-
-btn6.addEventListener("click", createListener(6));
+for (var i = 1; i <= 6; i++) {
+	let btn = document.getElementById("btn" + i.toString());
+	btn.addEventListener("click", createListener(i));
+}
 
 // Отправка данных в тг.
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
