@@ -27,7 +27,7 @@ for (var i = 1; i <= 6; i++) {
 			tg.MainButton.hide();
 		}
 		else {
-			tg.MainButton.setText("Далее (" + btn.price.toString() + ")");
+			tg.MainButton.setText("Перейти к оплате (" + btn.price.toString() + "₽)");
 			item = this.btn_id.toString();
 			tg.MainButton.show();
 		}
