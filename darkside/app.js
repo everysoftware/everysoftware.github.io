@@ -18,7 +18,7 @@ let btn4 = document.getElementById("btn4");
 let btn5 = document.getElementById("btn5");
 let btn6 = document.getElementById("btn6");
 
-let f = (i) -> function() {
+let f = (i) => function() {
 	if (tg.MainButton.isVisible) {
 		tg.MainButton.hide();
 	}
