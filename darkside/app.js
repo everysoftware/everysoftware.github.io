@@ -18,29 +18,31 @@ let btn4 = document.getElementById("btn4");
 let btn5 = document.getElementById("btn5");
 let btn6 = document.getElementById("btn6");
 
-let f = (i) => function() {
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Перейти к оплате");
-		item = i.toString();
-		tg.MainButton.show();
-	}
-};
+function createListener(i) {
+	return function() {
+		if (tg.MainButton.isVisible) {
+			tg.MainButton.hide();
+		}
+		else {
+			tg.MainButton.setText("Перейти к оплате");
+			item = i.toString();
+			tg.MainButton.show();
+		}
+	};
+}
 
 // Устанавливаем события на кнопки.
-btn1.addEventListener("click", f(1));
+btn1.addEventListener("click", createListener(1));
 
-btn2.addEventListener("click", f(2));
+btn2.addEventListener("click", createListener(2));
 
-btn3.addEventListener("click", f(3));
+btn3.addEventListener("click", createListener(3));
 
-btn4.addEventListener("click", f(4));
+btn4.addEventListener("click", createListener(4));
 
-btn5.addEventListener("click", f(5));
+btn5.addEventListener("click", createListener(5));
 
-btn6.addEventListener("click", f(6));
+btn6.addEventListener("click", createListener(6));
 
 // Отправка данных в тг.
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
