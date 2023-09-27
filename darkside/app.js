@@ -18,72 +18,29 @@ let btn4 = document.getElementById("btn4");
 let btn5 = document.getElementById("btn5");
 let btn6 = document.getElementById("btn6");
 
+let f = (i) -> function() {
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Перейти к оплате");
+		item = i.toString();
+		tg.MainButton.show();
+	}
+};
+
 // Устанавливаем события на кнопки.
-btn1.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Вы выбрали шаурму!");
-		item = "1";
-		tg.MainButton.show();
-	}
-});
+btn1.addEventListener("click", f(1));
 
-btn2.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Вы выбрали бургер!");
-		item = "2";
-		tg.MainButton.show();
-	}
-});
+btn2.addEventListener("click", f(2));
 
-btn3.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Вы выбрали сэндвич!");
-		item = "3";
-		tg.MainButton.show();
-	}
-});
+btn3.addEventListener("click", f(3));
 
-btn4.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Вы выбрали хот-дог!");
-		item = "4";
-		tg.MainButton.show();
-	}
-});
+btn4.addEventListener("click", f(4));
 
-btn5.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Вы выбрали наггетсы!");
-		item = "5";
-		tg.MainButton.show();
-	}
-});
+btn5.addEventListener("click", f(5));
 
-btn6.addEventListener("click", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Вы выбрали картошку фру!");
-		item = "6";
-		tg.MainButton.show();
-	}
-});
+btn6.addEventListener("click", f(6));
 
 // Отправка данных в тг.
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
