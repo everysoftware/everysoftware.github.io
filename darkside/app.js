@@ -10,22 +10,28 @@ tg.MainButton.color = '#2cab37';
 // Хранение выбранного товара.
 let item = "";
 
-function createListener(i) {
-	return function() {
+let prices = new Object();
+prices[1] = 220;
+prices[2] = 460;
+prices[3] = 240;
+prices[4] = 190;
+prices[5] = 100;
+prices[6] = 150;
+
+for (var i = 1; i <= 6; i++) {
+	let btn = document.getElementById("btn" + i.toString());
+	btn.btn_id = i;
+	btn.price = prices[i];
+	btn.addEventListener("click", function() {
 		if (tg.MainButton.isVisible) {
 			tg.MainButton.hide();
 		}
 		else {
-			tg.MainButton.setText("Перейти к оплате");
-			item = i.toString();
+			tg.MainButton.setText("Далее (" + btn.price.toString() + ")");
+			item = this.btn_id.toString();
 			tg.MainButton.show();
 		}
-	};
-}
-
-for (var i = 1; i <= 6; i++) {
-	let btn = document.getElementById("btn" + i.toString());
-	btn.addEventListener("click", createListener(i));
+	});
 }
 
 // Отправка данных в тг.
